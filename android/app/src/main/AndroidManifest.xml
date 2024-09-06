@@ -1,6 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
 
     <application
       android:name=".MainApplication"
@@ -10,6 +13,14 @@
       android:allowBackup="false"
       android:theme="@style/AppTheme"
       android:supportsRtl="true">
+      <meta-data android:name="com.transistorsoft.backgroundfetch.FETCH_JOB_SERVICE" android:value=".BackgroundFetchService" />
+      <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyC2zCm1iMf3x8GId-r1Uk6slFoNyMtwXPU" />
+       <meta-data android:name="com.transistorsoft.locationmanager.license" android:value="AIzaSyC2zCm1iMf3x8GId-r1Uk6slFoNyMtwXPU" />
+     
+      <service
+        android:name="com.transistorsoft.rnbackgroundgeolocation.HeadlessTask"
+        android:permission="android.permission.BIND_JOB_SERVICE"
+        android:exported="true"/>
       <activity
         android:name=".MainActivity"
         android:label="@string/app_name"
